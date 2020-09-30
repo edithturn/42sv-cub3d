@@ -15,7 +15,7 @@ https://github.com/42Paris/minilibx-linux
 
 ## Compile
 
-cc -I /usr/local/include main,c -L /usr/local/lib/ -lmlx -framework OpenGL -framework Appkit
+cc -I /usr/local/include main.c -L /usr/local/lib/ -lmlx -framework OpenGL -framework Appkit
 
 
 
