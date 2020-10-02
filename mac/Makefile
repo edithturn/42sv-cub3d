@@ -9,7 +9,7 @@ MLX_PATH	= minilibx
 
 CFLAGS		= -Wall -Wextra -Werror
 
-MAC_LIBS	= -Lmlx -lmlx -framework AppKit
+MAC_LIBS	= -lmlx -framework OpenGL -framework AppKit -lz
 
 # -I/nfs/2020/e/epuclla/mine/42sv-cub3d/mac/minilibx main.c /nfs/2020/e/epuclla/mine/42sv-cub3d/mac/minilibx/libmlx.a -framework OpenGL -framework AppKit
 
@@ -20,10 +20,11 @@ NAME		= cub3d
 all:		$(NAME)
 
 $(NAME):	$(MLX_NAME) $(OBJS)
-			gcc $(CFLAGS) -o $(NAME) $(OBJS) $(LINUX_LIBS) $(MLX_PATH)/$(MLX_NAME)
+			gcc -L $(MLX_PATH) $(CFLAGS) $(MAC_LIBS) $(MLX_NAME) -o $(NAME) $(OBJS)
 
 $(MLX_NAME):
 			@$(MAKE) -C $(MLX_PATH)
+			@cp $(MLX_PATH)/$(MLX_NAME) .
 
 clean:
 			@$(MAKE) -C $(MLX_PATH) clean
