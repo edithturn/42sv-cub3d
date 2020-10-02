@@ -95,6 +95,7 @@ int	main()
 
   printf("MinilibX Test Program\n");
   a = 0x11223344;
+  printf(" SIZE OFFFFFFFFFFFFF %ld", sizeof(a));
   if (((unsigned char *)&a)[0] == 0x11)
     local_endian = 1;
   else
