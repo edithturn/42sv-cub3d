@@ -9,9 +9,7 @@ MLX_PATH	= minilibx
 
 CFLAGS		= -Wall -Wextra -Werror
 
-MAC_LIBS	= -Lmlx -lmlx -framework AppKit
-
-# -I/nfs/2020/e/epuclla/mine/42sv-cub3d/mac/minilibx main.c /nfs/2020/e/epuclla/mine/42sv-cub3d/mac/minilibx/libmlx.a -framework OpenGL -framework AppKit
+LINUX_LIBS	= -Llmlx -lXext -lX11 -lm -lbsd -L$(MLX_PATH)
 
 MLX_NAME	= libmlx.a
 
