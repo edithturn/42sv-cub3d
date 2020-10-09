@@ -1,7 +1,7 @@
 #
 #
 
-SRCS		= src/main.c
+SRCS		= src/main.c src/get_next_line.c src/get_next_line_utils.c
 
 OBJS		= $(SRCS:.c=.o)
 
@@ -20,7 +20,7 @@ NAME		= cub3d
 all:		$(NAME)
 
 $(NAME):	$(MLX_NAME) $(OBJS)
-			gcc -L $(MLX_PATH) $(CFLAGS) $(MAC_LIBS) $(MLX_NAME) -o $(NAME) $(OBJS)
+			gcc -L $(MLX_PATH) $(CFLAGS) $(MAC_LIBS) $(MLX_NAME) -o $(NAME) $(OBJS) -I ../
 
 $(MLX_NAME):
 			@$(MAKE) -C $(MLX_PATH)
