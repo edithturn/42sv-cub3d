@@ -6,11 +6,11 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:57:12 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/11 02:17:45 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/10/11 02:50:37 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-cub3d_initialize()
+int		cub3d_initialize()
 {
 	void	*mlx_ptr;
 	void 	*win_ptr;

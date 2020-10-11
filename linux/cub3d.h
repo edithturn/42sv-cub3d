@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:16:03 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/11 01:09:57 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/10/11 03:37:20 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 # include <stdio.h>
 # include <math.h>
+# include <fcntl.h>
 # include "minilibx/mlx.h"
+# include "libft/libft.h"
 
 typedef struct	s_map
 {
@@ -23,5 +25,8 @@ typedef struct	s_map
 	int		heigth;
 	char	*file;
 }		t_map;
+
+// Functions
+int cub3d_validations(char *file);
 
 # endif

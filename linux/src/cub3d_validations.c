@@ -6,23 +6,24 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 01:07:38 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/11 02:16:57 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/10/11 04:07:21 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../cub3d.h"
 
-int cub3d_validations(t_map *map)
+int cub3d_validations(char *file)
 {
 	char	*cub;
-	//getting the format of a map [.cub]
-	while (!ft_strchar(map->file, '.'))
+	cub = ft_strchr(file, '.');
+	if (cub != NULL)
 	{
-		// find a point and compare if from point until finish the format is .cub, is  a valid format
-		map->file -=1;
-		if(!ft_strchar(map->file, '\n'))
-			cub = map->file;
+		if (strcmp(cub, ".cub") != 0)
+			printf("%s", "Invalid map format\n");
+		else
+			printf("%s", "Go to Read, cub3d_read()\n");
 	}
-	if (!strcmp(cub, ".cub"))
-		printf("%s", "Invalid format map");
+	else
+			printf("%s", "Invalid Map Fromat");
+	return (0);
 }
