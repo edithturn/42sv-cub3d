@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   cub3d_initialize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 00:16:03 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/11 01:09:57 by epuclla          ###   ########.fr       */
+/*   Created: 2020/10/11 00:57:12 by epuclla           #+#    #+#             */
+/*   Updated: 2020/10/11 02:17:45 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
-
-# include <stdio.h>
-# include <math.h>
-# include "minilibx/mlx.h"
-
-typedef struct	s_map
+cub3d_initialize()
 {
-	int		width;
-	int		heigth;
-	char	*file;
-}		t_map;
+	void	*mlx_ptr;
+	void 	*win_ptr;
 
-# endif
+	mlx_ptr = mlx_init();
+	win_ptr = mlx_new_window(mlx_ptr,500, 500, "mlx 42" );
+	mlx_loop(mlx_ptr);
+  }

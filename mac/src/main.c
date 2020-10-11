@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <fcntl.h>
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
 
   //void	*mlx_ptr;
@@ -19,9 +19,9 @@ int main(int argc, char **argv)
   // validaten --save argv = 2
 
   ret = 0;
-  if (argc == 2)
+  if (ac == 2)
   {
-    fd = open(argv[1],O_RDONLY);
+    fd = open(av[1],O_RDONLY);
     while((ret = get_next_line(fd, &line)) > 0)
     {
       printf("%s\n", line);
@@ -41,9 +41,7 @@ int main(int argc, char **argv)
     
   }
   
-  if (argc == 1)
-    printf("%s", "Error map don't sending");
-  
-  
+  if (ac == 1)
+    printf("%s", "Error map don't sending"); 
 
 }
