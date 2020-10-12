@@ -24,6 +24,8 @@ CFLAGS		= -Wall -Wextra -Werror
 
 LINUX_LIBS		= -lmlx -lXext -lX11 -lm -lbsd -L$(MLX_PATH)
 
+#MAC_LIBS	= -lmlx -framework OpenGL -framework AppKit -lz
+
 MLX_NAME	= libmlx.a
 
 LIBFT_NAME = libft.a
@@ -32,21 +34,19 @@ GNL_NAME = gnl.a
 
 NAME		= cub3d
 
-$(MLX_NAME):
-			@$(MAKE) -C $(MLX_PATH)
-
-$(LIBFT_NAME):
-			@$(MAKE) -C $(LIBFT_PATH)
-
-$(GNL_NAME):
-			@$(MAKE) -C $(GNL_PATH)
-
 all:		$(NAME)
 
 $(NAME):	$(MLX_NAME)  $(LIBFT_NAME) $(GNL_NAME) $(OBJS_CUB3D)
 			clang $(CFLAGS) -o $(NAME) $(OBJS_CUB3D) $(LINUX_LIBS) $(MLX_PATH)/$(MLX_NAME) $(GNL_PATH)/$(GNL_NAME) $(LIBFT_PATH)/$(LIBFT_NAME)
 
+$(MLX_NAME):
+			@$(MAKE) -C $(MLX_PATH)
 
+$(LIBFT_NAME):
+			cd $(LIBFT_PATH) && @$(MAKE) -C $(LIBFT_PATH)
+
+$(GNL_NAME):
+			@$(MAKE) -C $(GNL_PATH)
 
 clean:
 			@$(MAKE) -C $(MLX_PATH) clean

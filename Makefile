@@ -14,4 +14,10 @@ $(NAME):
 		@$(MAKE) -C $(VERSION_OS)
 		@cp $(VERSION_OS)/$(NAME) .
 
+
+clean:
+		$(RM) $(NAME)
+
+f:		all clean
+
 re	: clean all
