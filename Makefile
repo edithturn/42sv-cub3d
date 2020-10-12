@@ -16,6 +16,7 @@ $(NAME):
 
 
 clean:
+		@$(MAKE) -C $(VERSION_OS) clean
 		$(RM) $(NAME)
 
 f:		all clean
