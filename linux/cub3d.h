@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:16:03 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/11 03:37:20 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/10/11 16:55:57 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ typedef struct	s_map
 }		t_map;
 
 // Functions
-int cub3d_validations(char *file);
-
+int cub3d_validations(char *file, t_map *map);
+int	cub3d_read(t_map *map);
 # endif

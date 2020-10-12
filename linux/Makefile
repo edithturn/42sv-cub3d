@@ -6,11 +6,11 @@
 #    By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/02 10:09:06 by epuclla           #+#    #+#              #
-#    Updated: 2020/10/11 03:38:21 by epuclla          ###   ########.fr        #
+#    Updated: 2020/10/11 16:57:17 by epuclla          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= src/cub3d.c  src/cub3d_validations.c
+SRCS		= src/cub3d.c  src/cub3d_validations.c src/cub3d_read.c
 
 SRC_GET_NEXT_LINE = gnl/get_next_line.c gnl/get_next_line_utils.c
 
