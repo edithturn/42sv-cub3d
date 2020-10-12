@@ -1,33 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/12 11:24:31 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/12 11:53:36 by epuclla          ###   ########.fr       */
+/*   Created: 2020/04/22 20:13:14 by epuclla           #+#    #+#             */
+/*   Updated: 2020/04/22 20:13:16 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <math.h>
-# include <fcntl.h>
-# include "minilibx/mlx.h"
-# include "gnl/get_next_line.h"
-# include "libft/libft.h"
-
-typedef struct	s_map
+int	ft_isdigit(int c)
 {
-	int		width;
-	int		heigth;
-	char	*file;
-}		t_map;
-
-// Functions
-int cub3d_validations(char *file, t_map *map);
-int	cub3d_read(t_map *map);
-# endif
+	if (c >= '0' && c <= '9')
+		return (1);
+	else
+		return (0);
+}

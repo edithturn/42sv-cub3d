@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/12 11:24:31 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/12 11:53:36 by epuclla          ###   ########.fr       */
+/*   Created: 2020/04/22 21:24:02 by epuclla           #+#    #+#             */
+/*   Updated: 2020/04/23 00:15:23 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <math.h>
-# include <fcntl.h>
-# include "minilibx/mlx.h"
-# include "gnl/get_next_line.h"
-# include "libft/libft.h"
-
-typedef struct	s_map
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	int		width;
-	int		heigth;
-	char	*file;
-}		t_map;
+	size_t			i;
+	unsigned char	*udst;
+	unsigned char	*usrc;
+	unsigned int	uc;
 
-// Functions
-int cub3d_validations(char *file, t_map *map);
-int	cub3d_read(t_map *map);
-# endif
+	i = 0;
+	udst = (unsigned char *)dst;
+	usrc = (unsigned char *)src;
+	uc = (unsigned char)c;
+	while (n > i)
+	{
+		udst[i] = usrc[i];
+		if (usrc[i] == uc)
+			return (udst + i + 1);
+		i++;
+	}
+	return (NULL);
+}

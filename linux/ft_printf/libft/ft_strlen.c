@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/12 11:24:31 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/12 11:53:36 by epuclla          ###   ########.fr       */
+/*   Created: 2020/04/22 21:29:27 by epuclla           #+#    #+#             */
+/*   Updated: 2020/08/18 10:04:55 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <math.h>
-# include <fcntl.h>
-# include "minilibx/mlx.h"
-# include "gnl/get_next_line.h"
-# include "libft/libft.h"
+/*
+**The  strlen() function calculates the length of the string s, excluding
+**the terminating null byte ('\0').
+*/
 
-typedef struct	s_map
+size_t	ft_strlen(const char *str)
 {
-	int		width;
-	int		heigth;
-	char	*file;
-}		t_map;
+	const char *ptr;
 
-// Functions
-int cub3d_validations(char *file, t_map *map);
-int	cub3d_read(t_map *map);
-# endif
+	ptr = str;
+	while (*ptr)
+		ptr++;
+	return (ptr - str);
+}

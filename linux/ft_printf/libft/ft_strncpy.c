@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/12 11:24:31 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/12 11:53:36 by epuclla          ###   ########.fr       */
+/*   Created: 2020/08/18 16:19:06 by epuclla           #+#    #+#             */
+/*   Updated: 2020/08/25 18:07:04 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <math.h>
-# include <fcntl.h>
-# include "minilibx/mlx.h"
-# include "gnl/get_next_line.h"
-# include "libft/libft.h"
-
-typedef struct	s_map
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	int		width;
-	int		heigth;
-	char	*file;
-}		t_map;
+	size_t	i;
 
-// Functions
-int cub3d_validations(char *file, t_map *map);
-int	cub3d_read(t_map *map);
-# endif
+	i = 0;
+	while (src[i] && i < len)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	while (i < len)
+	{
+		dst[i] = '\0';
+		i++;
+	}
+	return (dst);
+}

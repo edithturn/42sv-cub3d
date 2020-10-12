@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/12 11:24:31 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/12 11:53:36 by epuclla          ###   ########.fr       */
+/*   Created: 2020/07/12 23:45:52 by epuclla           #+#    #+#             */
+/*   Updated: 2020/07/13 02:46:21 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <math.h>
-# include <fcntl.h>
-# include "minilibx/mlx.h"
-# include "gnl/get_next_line.h"
-# include "libft/libft.h"
-
-typedef struct	s_map
+void	*ft_memalloc(size_t size)
 {
-	int		width;
-	int		heigth;
-	char	*file;
-}		t_map;
+	void	*new;
 
-// Functions
-int cub3d_validations(char *file, t_map *map);
-int	cub3d_read(t_map *map);
-# endif
+	new = malloc(size);
+	if (!new)
+		return (NULL);
+	ft_bzero(new, size);
+	return (new);
+}

@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/12 11:24:31 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/12 11:53:36 by epuclla          ###   ########.fr       */
+/*   Created: 2020/02/24 17:24:06 by epuclla           #+#    #+#             */
+/*   Updated: 2020/04/28 12:36:48 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <math.h>
-# include <fcntl.h>
-# include "minilibx/mlx.h"
-# include "gnl/get_next_line.h"
-# include "libft/libft.h"
+/*
+**The strrchr function returns a
+**pointer to the last
+**occurrence of the character
+**c in the string s.
+*/
 
-typedef struct	s_map
+char	*ft_strrchr(const char *s, int c)
 {
-	int		width;
-	int		heigth;
-	char	*file;
-}		t_map;
+	int	i;
+	int find_index;
 
-// Functions
-int cub3d_validations(char *file, t_map *map);
-int	cub3d_read(t_map *map);
-# endif
+	i = 0;
+	find_index = -1;
+	while (s[i])
+	{
+		if (s[i] == c)
+			find_index = i;
+		i++;
+	}
+	if (s[i] == c)
+		find_index = i;
+	if (find_index >= 0)
+		return ((char *)(s + find_index));
+	return (NULL);
+}
