@@ -25,6 +25,8 @@ int	cub3d_read(t_map *map)
 		printf("%s\n", line);
 		free(line);
 	}
+	printf("%s\n", line);
+	free(line);
 	close(fd);
 
 //win_ptr = mlx_new_window(mlx_ptr,500, 500, "mlx 42" );
