@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/22 21:24:17 by epuclla           #+#    #+#             */
-/*   Updated: 2020/04/22 21:24:19 by epuclla          ###   ########.fr       */
+/*   Created: 2020/10/12 11:24:31 by epuclla           #+#    #+#             */
+/*   Updated: 2020/10/13 12:20:06 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef CUB3D_H
+# define CUB3D_H
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+# include <stdio.h>
+# include <math.h>
+# include <fcntl.h>
+# include "minilibx_linux/mlx.h"
+# include "minilibx_mac/mlx.h"
+# include "gnl/get_next_line.h"
+# include "libft/libft.h"
+
+typedef struct	s_map
 {
-	size_t			i;
-	unsigned char	*us1;
-	unsigned char	*us2;
+	int		width;
+	int		heigth;
+	char	*file;
+}		t_map;
 
-	us1 = (unsigned char *)s1;
-	us2 = (unsigned char *)s2;
-	i = 0;
-	if (us1 == us2 || n == 0)
-		return (0);
-	while (n)
-	{
-		if (us1[i] != us2[i])
-			return (us1[i] - us2[i]);
-		i++;
-		n--;
-	}
-	return (0);
-}
+// Functions
+int cub3d_validations(char *file, t_map *map);
+int	cub3d_read(t_map *map);
+# endif

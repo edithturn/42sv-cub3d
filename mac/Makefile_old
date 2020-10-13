@@ -1,36 +1,36 @@
 # **************************************************************************** #
 #                                                                              #
 #                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
+#    Makefile_old                                       :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
 #    By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2020/03/01 19:14:09 by epuclla           #+#    #+#              #
-#    Updated: 2020/10/12 00:28:34 by epuclla          ###   ########.fr        #
+#    Created: 2020/10/13 11:08:18 by epuclla           #+#    #+#              #
+#    Updated: 2020/10/13 12:26:23 by epuclla          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = gcc
-NAME = gnl.a
-CFLAGS = -Wall -Wextra -Werror -c
+NAME= cub3d
+UNAME_S := $(shell uname -s)
 
-SOURCES	= get_next_line.c get_next_line_utils.c
+ifeq ($(UNAME_S),Linux)
+	VERSION_OS = linux
+endif
+ifeq ($(UNAME_S),Darwin)
+	VERSION_OS = mac
+endif
 
-OBJETS = $(SOURCES:%.c=%.o)
-INCLUDES=./
+all	:$(NAME)
 
-all: $(NAME)
 $(NAME):
-	@$(CC) $(CFLAGS) $(SOURCES) -I$(INCLUDES)
-	@ar rc $(NAME) $(OBJETS)
-	@ranlib $(NAME)
+		@$(MAKE) -C $(VERSION_OS)
+		@cp $(VERSION_OS)/$(NAME) .
+
 
 clean:
-	@rm -f $(OBJETS)
+		@$(MAKE) -C $(VERSION_OS) clean
+		$(RM) $(NAME)
 
-fclean: 	clean
-	@rm -f $(NAME)
+f:		all clean
 
-re: fclean all
-
-.PHONY:		all clean fclean re
+re	: clean all
