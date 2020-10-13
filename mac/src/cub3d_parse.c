@@ -10,4 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//use get_next_line here
+#include	"../cub3d.h"
+
+int	cub3d_parse(t_map *map)
+{
+    //read all the file or read the first line, look for R and start looking for digits
+
+}
