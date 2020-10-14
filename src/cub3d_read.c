@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:33:32 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/13 13:06:10 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/10/14 11:44:09 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ int	cub3d_read(t_map *map)
 	fd = open(map->file,O_RDONLY);
 	while((ret = get_next_line(fd, &line)) > 0)
 	{
-		printf("%s\n", line);
-		cub3d_resolution(line);
+		if (cub3d_validate_resolution(line))
+			cub3d_parse_resolution(map, line);
 		free(line);
 	}
-	printf("%s\n", line);
+	//printf("%s\n", line);
 	free(line);
 	close(fd);
 
