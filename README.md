@@ -1,6 +1,11 @@
 # 42sv-cub3d
 
 
+```bash
+Intalling minilix
+
+```
+
 ### Sources
 https://lodev.org/cgtutor/raycasting.html
 
