@@ -6,11 +6,11 @@
 #    By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/02 10:09:06 by epuclla           #+#    #+#              #
-#    Updated: 2020/10/13 12:28:01 by epuclla          ###   ########.fr        #
+#    Updated: 2020/10/13 13:07:16 by epuclla          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= src/cub3d.c  src/cub3d_validations.c src/cub3d_read.c
+SRCS		= src/cub3d.c  src/cub3d_validations.c src/cub3d_read.c src/cub3d_resolution.c
 
 OBJS_CUB3D		= $(SRCS:.c=.o)
 
