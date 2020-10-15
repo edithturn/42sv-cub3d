@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 01:07:38 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/14 10:13:59 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/10/15 15:40:11 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int cub3d_validations(t_map *map)
 	cub = ft_strchr(map->file, '.');
 	if (cub != NULL)
 	{
-		if (strcmp(cub, ".cub") != 0)
+		if (ft_strcmp(cub, ".cub") != 0)
 			printf("%s", "Invalid map formaasst\n");
 		else
 			cub3d_read(map);

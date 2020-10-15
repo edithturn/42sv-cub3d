@@ -6,22 +6,27 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:44:07 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/14 11:50:59 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/10/15 15:42:34 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../cub3d.h"
+
 int	cub3d_parse_resolution(t_map *map, char *line)
 {
-	//read all the file or read the first line, look for R and start looking for digits
-	 
- 	int resolution;
+  	int x_resolution;
+	int y_resolution;
+
 	while (!ft_isdigit(*line))
 	 	line++;
-	resolution = *line;
-	map->width = resolution;
-	printf("%d", map->width);
-	printf("%d", 4);
-
+	x_resolution = ft_atoi(line);
+	map->width = x_resolution;
+	printf("map->width %d\n", map->width);
+	line += ft_strlen(ft_itoa(x_resolution));	
+	while (!ft_isdigit(*line))
+		line++;
+	y_resolution = ft_atoi(line);
+	map->heigth = y_resolution;
+	printf("map->heigth %d\n", map->heigth);
 	return (0);
 }
