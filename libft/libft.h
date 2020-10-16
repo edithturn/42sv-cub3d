@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/19 09:57:51 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/14 11:48:45 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/10/15 23:59:41 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,7 @@ void				ft_putstr(char const *c);
 void				ft_putchar_fd(char c, int fd);
 int					ft_nbrlen(long long nbr);
 void				ft_putnchar(char c, int n);
+
+char			*ft_strtrim(char const *s1, char const *set);
 
 #endif

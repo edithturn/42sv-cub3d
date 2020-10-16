@@ -6,7 +6,7 @@
 #    By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/01 19:14:09 by epuclla           #+#    #+#              #
-#    Updated: 2020/10/14 11:48:08 by epuclla          ###   ########.fr        #
+#    Updated: 2020/10/16 00:00:25 by epuclla          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SOURCES	= ft_strcpy.c \
 										ft_memchr.c ft_memcmp.c ft_strdup.c ft_calloc.c ft_itoa.c \
 										ft_putchar_fd.c ft_putstr_fd.c \
 										ft_substr.c ft_nbrlen.c ft_strncpy.c \
-										ft_isdigit.c
+										ft_isdigit.c ft_strtrim.c
 
 
 OBJETS = $(SOURCES:%.c=%.o)

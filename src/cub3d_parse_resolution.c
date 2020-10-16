@@ -6,13 +6,13 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:44:07 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/15 15:42:34 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/10/16 00:32:41 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../cub3d.h"
 
-int	cub3d_parse_resolution(t_map *map, char *line)
+void	cub3d_parse_resolution(t_map *map, char *line)
 {
   	int x_resolution;
 	int y_resolution;
@@ -28,5 +28,11 @@ int	cub3d_parse_resolution(t_map *map, char *line)
 	y_resolution = ft_atoi(line);
 	map->heigth = y_resolution;
 	printf("map->heigth %d\n", map->heigth);
-	return (0);
+
+}
+
+void cub3d_parse_path(char **path, char *line)
+{
+	*path = ft_strtrim(line, "  ");
+	printf("%s\n", *path);
 }

@@ -6,16 +6,36 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:57:12 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/11 02:50:37 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/10/15 21:33:50 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		cub3d_initialize()
-{
-	void	*mlx_ptr;
-	void 	*win_ptr;
+#include	"../cub3d.h"
 
-	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr,500, 500, "mlx 42" );
-	mlx_loop(mlx_ptr);
+void		cub3d_initialize(t_map *map)
+{
+	//int	a;
+	//#int	local_endian;
+	void	*mlx;
+	void	*win1;
+
+//   a = 0x11223344;
+//   if (((unsigned char *)&a)[0] == 0x11)
+//     local_endian = 1;
+//   else
+//     local_endian = 0;
+
+  if (!(mlx = mlx_init()))
+    {
+      printf(" !! KO !!\n");
+      exit(1);
+    }
+
+  if (!(win1 = mlx_new_window(mlx,map->width,map->heigth,"Title1")))
+    {
+      printf(" !! KO !!\n");
+      exit(1);
+    }
+	printf("OK\n");
+	mlx_loop(mlx);
   }

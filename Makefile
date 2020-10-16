@@ -6,11 +6,11 @@
 #    By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/02 10:09:06 by epuclla           #+#    #+#              #
-#    Updated: 2020/10/14 11:49:21 by epuclla          ###   ########.fr        #
+#    Updated: 2020/10/15 21:32:06 by epuclla          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= src/cub3d.c  src/cub3d_validations.c src/cub3d_read.c src/cub3d_validate_resolution.c src/cub3d_parse_resolution.c
+SRCS		= src/cub3d.c  src/cub3d_validations.c src/cub3d_read.c src/cub3d_parse_resolution.c src/cub3d_initialize.c
 
 OBJS_CUB3D		= $(SRCS:.c=.o)
 
@@ -70,13 +70,3 @@ re:			fclean $(NAME)
 f:			all clean
 
 .PHONY:		all clean fclean re f
-
-
-
-#gcc -Wall -Wextra -Werror -L mlx -I includes -lmlx -framework OpenGL -framework AppKit -lz -o cub3d libft.a 
-#srcs/ft_parse_map.c srcs/ft_perror.c srcs/ft_parse_map_utils1.c srcs/ft_parse_map_utils2.c srcs/main_utils1.c srcs/main_utils2.c srcs/ft_init.c srcs/ft_init_utils1.c srcs/ft_init_utils2.c srcs/ft_screenshot.c srcs/bmp.c srcs/ft_render_3D.c srcs/ft_render_3D_utils1.c srcs/ft_render_3D_utils2.c srcs/ft_render_3D_utils3.c srcs/main.c
-
-
-#gcc -Wall -Wextra -Werror                    -lmlx -framework OpenGL -framework AppKit -lz minilibx_mac/libmlx.a gnl/gnl.a libft/libft.a -o cub3d src/cub3d.o 
-#src/cub3d_validations.o src/cub3d_read.o src/cub3d_validate_resolution.o src/cub3d_parse_resolution.o 
-#ld: library not found for -lmlx
