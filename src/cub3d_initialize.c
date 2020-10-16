@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:57:12 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/15 21:33:50 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/10/16 01:20:37 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,9 @@
 
 void		cub3d_initialize(t_map *map)
 {
-	//int	a;
-	//#int	local_endian;
+
 	void	*mlx;
 	void	*win1;
-
-//   a = 0x11223344;
-//   if (((unsigned char *)&a)[0] == 0x11)
-//     local_endian = 1;
-//   else
-//     local_endian = 0;
 
   if (!(mlx = mlx_init()))
     {
