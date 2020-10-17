@@ -44,8 +44,9 @@ typedef struct	s_map
 int			cub3d_validations(t_map *map);
 int			cub3d_read(t_map *map);
 //int		cub3d_validate_resolution(char *line);
-void			cub3d_parse_resolution(t_map *map, char *line);
+void		cub3d_parse_resolution(t_map *map, char *line);
 void		cub3d_parse_map(char *line);
 void		cub3d_initialize(t_map *map);
 void 		cub3d_parse_path(char **path, char *line);
+//char 		*cub3d_error(t_map *map);
 # endif

@@ -10,7 +10,8 @@
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= src/cub3d.c  src/cub3d_validations.c src/cub3d_read.c src/cub3d_parse_resolution.c src/cub3d_initialize.c
+SRCS		= src/cub3d.c src/cub3d_validations.c src/cub3d_read.c \
+				src/cub3d_parse_resolution.c src/cub3d_initialize.c
 
 OBJS_CUB3D		= $(SRCS:.c=.o)
 
