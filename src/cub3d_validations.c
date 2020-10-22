@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 01:07:38 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/15 19:00:33 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/10/19 12:05:55 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,5 @@ int cub3d_validations(t_map *map)
 	}
 	else
 			printf("%s", "Invalid Map Fromat");
-
-	cub3d_initialize(map);
 	return (0);
 }

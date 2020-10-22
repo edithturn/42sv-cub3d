@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:44:07 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/16 01:20:32 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/10/19 12:05:55 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	cub3d_parse_resolution(t_map *map, char *line)
 	map->width = x_resolution;
 	printf("map->width %d\n", map->width);
 	line += ft_strlen(ft_itoa(x_resolution));	
-	while (!ft_isdigit(*line))
+	while (!ft_isdigit(*line ))
 		line++;
 	y_resolution = ft_atoi(line);
 	map->heigth = y_resolution;

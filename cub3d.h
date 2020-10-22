@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 21:16:46 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/16 00:30:04 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/10/21 11:31:51 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,20 @@ typedef struct	s_map
 	char	*file;
 }		t_map;
 
+
+typedef struct  s_data {
+	void		*img;
+	char		*addr;
+	int				bits_per_pixel;
+	int				line_length;
+	int				endian;
+}				t_data;
+
 // Functions
 int			cub3d_validations(t_map *map);
 int			cub3d_read(t_map *map);
 //int		cub3d_validate_resolution(char *line);
-void			cub3d_parse_resolution(t_map *map, char *line);
+void		cub3d_parse_resolution(t_map *map, char *line);
 void		cub3d_parse_map(char *line);
 void		cub3d_initialize(t_map *map);
 void 		cub3d_parse_path(char **path, char *line);
