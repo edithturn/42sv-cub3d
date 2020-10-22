@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:57:12 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/21 13:38:57 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/10/21 17:22:02 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void		cub3d_initialize(t_map *map)
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
                                  &img.endian);
 	my_mlx_pixel_put(&img, 10, 10, 0x00FF0000);
-	mlx_put_image_to_window(mlx, win1, img.img, 1500, 1800);
+	mlx_put_image_to_window(mlx, win1, img.img, 150, 200);
 
 	printf("OK\n");
 	mlx_loop(mlx);
