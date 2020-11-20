@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:57:12 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/21 17:22:02 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/11/19 12:52:53 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,11 @@ void		cub3d_initialize(t_map *map)
       exit(1);
     }
 
-	img.img = mlx_new_image(mlx, 100, 100);
+	img.img = mlx_new_image(mlx, 1920, 1080);
 	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
                                  &img.endian);
-	my_mlx_pixel_put(&img, 10, 10, 0x00FF0000);
-	mlx_put_image_to_window(mlx, win1, img.img, 150, 200);
+	my_mlx_pixel_put(&img, 10, 10, 0x0055FF33);
+	mlx_put_image_to_window(mlx, win1, img.img, 300, 300);
 
 	printf("OK\n");
 	mlx_loop(mlx);

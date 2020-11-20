@@ -1,33 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 00:45:30 by epuclla           #+#    #+#             */
-/*   Updated: 2020/11/19 19:16:16 by epuclla          ###   ########.fr       */
+/*   Created: 2020/04/22 20:15:03 by epuclla           #+#    #+#             */
+/*   Updated: 2020/04/29 19:51:46 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../cub3d.h"
+#include "libft.h"
 
-int main(int ac, char **ag)
+/*
+** Iterates the list 'lst' and applies the function 'f'
+** to the content of  each element.
+** Parameters:
+** #1. The adress of a pointer to an element.
+** #2. The adress of the function used to iterate on the list.
+*/
+
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	t_map *map;
+	t_list *next;
 
-	map = (t_map *)ft_memalloc(sizeof(t_map));
-	if(ft_parse_map(ag[1], map) == FAILED)
-		return FAILED;
-	if (ac == 2)
+	if (!lst || !f)
+		return ;
+	while (lst)
 	{
-		map->file = ag[1];
-		cub3d_validations(map);
-		
-		cub3d_initialize(map);
+		f(lst->content);
+		next = lst->next;
+		lst = next;
 	}
-	if (ac == 1)
-		printf("%s", "No map");
-
-	return (0);
 }

@@ -6,16 +6,18 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 21:16:46 by epuclla           #+#    #+#             */
-/*   Updated: 2020/10/21 11:31:51 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/11/19 20:30:17 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include <stdio.h>
-# include <math.h>
 # include <fcntl.h>
+# include <math.h>
+# include <stdio.h>
+# include <stdint.h>
+# include "mlx.h"
 # include "minilibx_linux/mlx.h"
 # include "minilibx_mac/mlx.h"
 # include "gnl/get_next_line.h"
@@ -38,6 +40,7 @@ typedef struct	s_map
 	int		heigth;
 	char	*path[5];
 	char	*file;
+	t_list		*text;
 }		t_map;
 
 
@@ -58,4 +61,8 @@ void		cub3d_parse_map(char *line);
 void		cub3d_initialize(t_map *map);
 void 		cub3d_parse_path(char **path, char *line);
 //char 		*cub3d_error(t_map *map);
+
+
+# define FAILED						-1
+
 # endif

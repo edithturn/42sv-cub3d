@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 00:45:30 by epuclla           #+#    #+#             */
-/*   Updated: 2020/11/19 19:16:16 by epuclla          ###   ########.fr       */
+/*   Created: 2020/04/22 20:14:01 by epuclla           #+#    #+#             */
+/*   Updated: 2020/04/28 11:51:12 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../cub3d.h"
+#include "libft.h"
 
-int main(int ac, char **ag)
+/*
+**Adds the element 'new' at the end of the list.
+** Parameters:
+** #1. The address of a pointer to the first link of a list.
+** #2. The address of a pointer to the element to be added to the list.
+*/
+
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_map *map;
+	t_list *last;
 
-	map = (t_map *)ft_memalloc(sizeof(t_map));
-	if(ft_parse_map(ag[1], map) == FAILED)
-		return FAILED;
-	if (ac == 2)
+	if (*lst)
 	{
-		map->file = ag[1];
-		cub3d_validations(map);
-		
-		cub3d_initialize(map);
+		last = ft_lstlast(*lst);
+		last->next = new;
 	}
-	if (ac == 1)
-		printf("%s", "No map");
-
-	return (0);
+	else
+		*lst = new;
 }

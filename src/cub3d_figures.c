@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   cub3d_figures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 00:45:30 by epuclla           #+#    #+#             */
-/*   Updated: 2020/11/19 19:16:16 by epuclla          ###   ########.fr       */
+/*   Created: 2020/11/19 12:53:10 by epuclla           #+#    #+#             */
+/*   Updated: 2020/11/19 12:55:16 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../cub3d.h"
 
-int main(int ac, char **ag)
+void		draw_line(t_map *map, int x1, int y1, int x2, int y2, int color)
 {
-	t_map *map;
+	int		i;
+	int		x;
+	int		y;
+	int		dx;
+	int		dy;
+	int		step;
 
-	map = (t_map *)ft_memalloc(sizeof(t_map));
-	if(ft_parse_map(ag[1], map) == FAILED)
-		return FAILED;
-	if (ac == 2)
+	dx = abs(x2 - x1);
+	dy = abs(y2 - y1);
+	if (dx >= dy)
+		step = dx;
+	else
+		step = dy;
+	dx /= step;
+	dy /= step;
+	x = x1;
+	y = y1;
+	i = 1;
+	while (i <= step)
 	{
-		map->file = ag[1];
-		cub3d_validations(map);
-		
-		cub3d_initialize(map);
+		my_mlx_pixel_put(map, x, y, color);
+		x += dx;
+		y += dy;
+		i++;
 	}
-	if (ac == 1)
-		printf("%s", "No map");
-
-	return (0);
 }

@@ -1,33 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 00:45:30 by epuclla           #+#    #+#             */
-/*   Updated: 2020/11/19 19:16:16 by epuclla          ###   ########.fr       */
+/*   Created: 2020/04/22 20:15:16 by epuclla           #+#    #+#             */
+/*   Updated: 2020/04/22 23:59:35 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../cub3d.h"
+#include "libft.h"
 
-int main(int ac, char **ag)
+/*
+** Returns the last element of the list.
+** Parameters:
+** #1. The beginning of the list.
+*/
+
+t_list	*ft_lstlast(t_list *lst)
 {
-	t_map *map;
-
-	map = (t_map *)ft_memalloc(sizeof(t_map));
-	if(ft_parse_map(ag[1], map) == FAILED)
-		return FAILED;
-	if (ac == 2)
-	{
-		map->file = ag[1];
-		cub3d_validations(map);
-		
-		cub3d_initialize(map);
-	}
-	if (ac == 1)
-		printf("%s", "No map");
-
-	return (0);
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }

@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 00:45:30 by epuclla           #+#    #+#             */
-/*   Updated: 2020/11/19 19:16:16 by epuclla          ###   ########.fr       */
+/*   Created: 2020/04/22 21:23:43 by epuclla           #+#    #+#             */
+/*   Updated: 2020/04/23 00:12:05 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../cub3d.h"
+#include "libft.h"
 
-int main(int ac, char **ag)
+/*
+** Counts the number of elements in a list.
+** Parameters: #1. The beginning of the list.
+** Return value: Length of the list.
+*/
+
+int	ft_lstsize(t_list *lst)
 {
-	t_map *map;
+	t_list	*next;
+	int		count;
 
-	map = (t_map *)ft_memalloc(sizeof(t_map));
-	if(ft_parse_map(ag[1], map) == FAILED)
-		return FAILED;
-	if (ac == 2)
+	count = 0;
+	while (lst)
 	{
-		map->file = ag[1];
-		cub3d_validations(map);
-		
-		cub3d_initialize(map);
+		next = lst->next;
+		lst = next;
+		count = count + 1;
 	}
-	if (ac == 1)
-		printf("%s", "No map");
-
-	return (0);
+	return (count);
 }

@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.c                                            :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/10/11 00:45:30 by epuclla           #+#    #+#             */
-/*   Updated: 2020/11/19 19:16:16 by epuclla          ###   ########.fr       */
+/*   Created: 2020/11/16 10:50:44 by epuclla           #+#    #+#             */
+/*   Updated: 2020/11/16 11:37:37 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../cub3d.h"
-
-int main(int ac, char **ag)
+int	create_trgb(int t, int r, int g, int b)
 {
-	t_map *map;
+	return(r << 24 | r << 16 | g << 8 | b);
+}
 
-	map = (t_map *)ft_memalloc(sizeof(t_map));
-	if(ft_parse_map(ag[1], map) == FAILED)
-		return FAILED;
-	if (ac == 2)
-	{
-		map->file = ag[1];
-		cub3d_validations(map);
-		
-		cub3d_initialize(map);
-	}
-	if (ac == 1)
-		printf("%s", "No map");
+int add_shade(int trgb)
+{
+	return ();
+}
 
-	return (0);
+int get_opposite()
+{
+
 }
