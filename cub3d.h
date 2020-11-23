@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 21:16:46 by epuclla           #+#    #+#             */
-/*   Updated: 2020/11/19 20:30:17 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/11/23 12:15:01 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,24 @@ typedef struct	s_map
 {
 	int		width;
 	int		heigth;
-	char	*path[5];
-	char	*file;
-	t_list		*text;
+	char	*texture[5];
+	int		floor_color;
+	int		ceiling_color;
+	char		*file;
+	t_list		*content;
+	int	rows;
+	int cols;
+	char	**arr;
+	int		cpx;
+	int		cpy;
+	int		c_alpha;
+	unsigned short nbr_sprites;
 }		t_map;
+
+typedef	struct s_cub3d
+{
+	t_map map;
+}	t_cub3d;
 
 
 typedef struct  s_data {
@@ -52,17 +66,28 @@ typedef struct  s_data {
 	int				endian;
 }				t_data;
 
-// Functions
-int			cub3d_validations(t_map *map);
-int			cub3d_read(t_map *map);
-//int		cub3d_validate_resolution(char *line);
-void		cub3d_parse_resolution(t_map *map, char *line);
-void		cub3d_parse_map(char *line);
-void		cub3d_initialize(t_map *map);
-void 		cub3d_parse_path(char **path, char *line);
-//char 		*cub3d_error(t_map *map);
 
+
+// as
+int main(int ac, char **ag);
+
+// validations
+int ft_is_cub_format(char *ag);
+
+// Parse
+void			ft_parse_resolution(t_map *map, char *line);
+void 			ft_parse_path(char **path, char *line);
+int				ft_general_parse(t_map *map);
+
+// Init Game
+int				ft_init_game(t_map *map);
+
+// Error Handle
+int				ft_general_error(int n);
+int				ft_perror_free_map(int n, t_map *map);
 
 # define FAILED						-1
+# define TEXTURES				4
+# define SUCCESS				1
 
 # endif

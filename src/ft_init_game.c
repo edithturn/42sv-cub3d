@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d_initialize.c                                 :+:      :+:    :+:   */
+/*   ft_init_game.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:57:12 by epuclla           #+#    #+#             */
-/*   Updated: 2020/11/19 12:52:53 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/11/23 11:14:53 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"../cub3d.h"
+
 void    my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
     char    *dst;
@@ -19,9 +20,8 @@ void    my_mlx_pixel_put(t_data *data, int x, int y, int color)
     *(unsigned int*)dst = color;
 }
 
-void		cub3d_initialize(t_map *map)
+int		ft_init_game(t_map *map)
 {
-
 	void	*mlx;
 	void	*win1;
 	t_data  img;
@@ -46,4 +46,6 @@ void		cub3d_initialize(t_map *map)
 
 	printf("OK\n");
 	mlx_loop(mlx);
+
+	return (0);
 }
