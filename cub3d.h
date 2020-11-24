@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 21:16:46 by epuclla           #+#    #+#             */
-/*   Updated: 2020/11/23 18:41:23 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/11/23 19:23:29 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,11 @@ typedef struct  s_data {
 	int				bits_per_pixel;
 	int				line_length;
 	int				endian;
+	int 		map_rows;
+	int			map_cols;
+	int		tilesize;
+	int		window_width;
+	int window_height;
 }				t_data;
 
 
@@ -91,8 +96,10 @@ int				ft_perror_free_map(int n, t_map *map);
 void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 
-void		ft_figures(t_data *img, int x1, int y1, int x2, int y2, int color);
+void		draw_line(t_data *data, int x1, int y1, int x2, int y2, int color);
 void		ft_square(t_data *data, int x, int y, int size, int color);
+void		ft_draw_grid(t_data *data, int x1, int y1, int x2, int y2, int color);
+
 # define FAILED						-1
 # define TEXTURES				4
 # define SUCCESS				1

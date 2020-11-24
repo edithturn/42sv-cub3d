@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 12:53:10 by epuclla           #+#    #+#             */
-/*   Updated: 2020/11/23 18:40:49 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/11/23 20:04:04 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void    my_mlx_pixel_put(t_data *data, int x, int y, int color)
     *(unsigned int*)dst = color;
 }
 
-void		ft_figures(t_data *data, int x1, int y1, int x2, int y2, int color)
+void		draw_line(t_data *data, int x1, int y1, int x2, int y2, int color)
 {
 	int		i;
 	int		x;
@@ -71,5 +71,24 @@ void		ft_square(t_data *data, int x, int y, int size, int color)
 		i++;
 		x = original_pos;
 		j = 0;
+	}
+}
+
+void		ft_draw_grid(t_data *data, int x1, int y1, int x2, int y2, int color)
+{
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	while (i < x1)
+	{
+		draw_line(data, x1, i * y1, x2,	i * y2, color);
+		i++;
+	}
+	while (j < y1)
+	{
+		draw_line(data, j * x1, y1, j * x2, y2, color);
+		j++;
 	}
 }
