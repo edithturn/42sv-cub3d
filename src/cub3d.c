@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:45:30 by epuclla           #+#    #+#             */
-/*   Updated: 2020/11/23 12:10:36 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/11/23 14:36:07 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(int ac, char **ag)
 			return (FAILED);
 		if(ft_init_game(map) == -1)
 			return (ft_general_error(-1));
-		//raycasting
+		//cub3d_figures(map, 4, 5 , 7 , 5, 8);
 	}
 	return (0);
 }

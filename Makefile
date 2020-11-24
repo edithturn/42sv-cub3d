@@ -6,12 +6,12 @@
 #    By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/02 10:09:06 by epuclla           #+#    #+#              #
-#    Updated: 2020/11/23 12:13:58 by epuclla          ###   ########.fr        #
+#    Updated: 2020/11/23 17:06:55 by epuclla          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		= src/cub3d.c src/ft_init_game.c src/ft_general_parse.c \
-				src/ft_general_error.c 
+				src/ft_general_error.c src/ft_figures.c
 
 OBJS_CUB3D		= $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 21:16:46 by epuclla           #+#    #+#             */
-/*   Updated: 2020/11/23 12:15:01 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/11/23 18:41:23 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,13 @@ int				ft_init_game(t_map *map);
 int				ft_general_error(int n);
 int				ft_perror_free_map(int n, t_map *map);
 
+// Figures
+//void		cub3d_figures(t_map *map, int x1, int y1, int x2, int y2, int color);
+void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
+
+
+void		ft_figures(t_data *img, int x1, int y1, int x2, int y2, int color);
+void		ft_square(t_data *data, int x, int y, int size, int color);
 # define FAILED						-1
 # define TEXTURES				4
 # define SUCCESS				1
