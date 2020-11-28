@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:57:12 by epuclla           #+#    #+#             */
-/*   Updated: 2020/11/23 20:04:05 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/11/26 16:44:33 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int		ft_init_game(t_map *map)
 
 	draw_line(&data, 50, 80, 500, 100, 0x00FFFF00);
 	draw_line(&data, 100, 120, 200, 500, 0x0055FF33);
+	ft_square(&data, 100, 120, 500, 0x00FFFF00);
 	mlx_put_image_to_window(mlx, win1, data.img, 300, 300);
 
 	printf("OK\n");

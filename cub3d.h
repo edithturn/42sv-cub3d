@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 21:16:46 by epuclla           #+#    #+#             */
-/*   Updated: 2020/11/23 19:23:29 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/11/27 19:13:19 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,12 @@ enum				e_path
 	e_sprite
 };
 
+enum				e_colors
+{
+	e_R,
+	e_G,
+	e_B
+};
 
 
 typedef struct	s_map
@@ -39,8 +45,8 @@ typedef struct	s_map
 	int		width;
 	int		heigth;
 	char	*texture[5];
-	int		floor_color;
-	int		ceiling_color;
+	int		floor_color[2];
+	int		ceiling_color[2];
 	char		*file;
 	t_list		*content;
 	int	rows;
