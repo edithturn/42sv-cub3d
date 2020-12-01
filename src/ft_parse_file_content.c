@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:33:32 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/01 01:35:59 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/12/01 02:20:56 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,15 +99,19 @@ int		ft_parse_file_content(char *file, t_map *map)
 			ft_parse_floor_color(map, line);
 		else if (*line == 'C' && *(line + 1) == ' ' )
 			ft_parse_ceilling_solor(map, line);
-		else
-		{
-			printf("%s\n", "INVALID FORMAT");
-			return (0);
+		else if (*line == '\0')
+			;
+		else{
+			if((int)ft_strlen(line) > map->maze.cols)
+				map->maze.cols = ft_strlen(line);
+			map->maze.rows++;
 		}
 		free(line);
 	}
-
+	printf("MAZE colums %d \n", map->maze.cols);
+	printf("MAZE row  %d \n", map->maze.rows);
 	free(line);
+
 	close(fd);
 
 	return (0);
