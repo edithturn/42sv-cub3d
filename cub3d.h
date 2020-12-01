@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 21:16:46 by epuclla           #+#    #+#             */
-/*   Updated: 2020/11/27 19:13:19 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/12/01 01:31:07 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include "gnl/get_next_line.h"
 # include "libft/libft.h"
 
+// Enum for  texture
 enum				e_path
 {
 	e_north,
@@ -32,6 +33,7 @@ enum				e_path
 	e_sprite
 };
 
+// Enum for colors
 enum				e_colors
 {
 	e_R,
@@ -39,72 +41,86 @@ enum				e_colors
 	e_B
 };
 
-
-typedef struct	s_map
+// Structure for file
+typedef struct s_file
 {
-	int		width;
-	int		heigth;
-	char	*texture[5];
-	int		floor_color[2];
-	int		ceiling_color[2];
 	char		*file;
 	t_list		*content;
-	int	rows;
-	int cols;
-	char	**arr;
-	int		cpx;
-	int		cpy;
-	int		c_alpha;
-	unsigned short nbr_sprites;
-}		t_map;
+} t_file;
 
-typedef	struct s_cub3d
+// Structure for image
+typedef struct s_image
 {
-	t_map map;
-}	t_cub3d;
-
-
-typedef struct  s_data {
 	void		*img;
 	char		*addr;
 	int				bits_per_pixel;
 	int				line_length;
 	int				endian;
-	int 		map_rows;
-	int			map_cols;
-	int		tilesize;
-	int		window_width;
-	int window_height;
-}				t_data;
+} t_image;
+
+// Structure for window
+typedef struct s_window
+{
+	int			width;
+	int			heigth;
+} t_window;
+
+// Structure for textures
+typedef struct s_textures
+{
+	char		*file[5];
+} t_texture;
+
+// Structure for colors
+typedef struct s_color
+{
+	int			floor_color[3];
+	int			ceiling_color[3];
+} t_color;
+
+// Structuree for maze
+typedef struct	s_maze
+{
+	int			rows;
+	int			 cols;
+	char		**arr;
+	int			cpx;
+	int			cpy;
+	int			c_alpha;
+	//unsigned short nbr_sprites;
+}		t_maze;
+
+typedef	struct s_map
+{
+	t_window 		window;
+	t_texture 			texture;
+	t_color 			color;
+	t_maze 				maze;
+} t_map;
+
+typedef	struct s_cub3d
+{
+	t_file 				file;
+	t_image 		image;
+	t_map			map;
+}	t_cub3d;
+
+
 
 
 
 // as
-int main(int ac, char **ag);
+int 	main(int ac, char **ag);
+int	 	ft_initialize_file_content(char *fd, t_cub3d *cub3d);
+int		ft_parse_file_content(char *file, t_map *map);
+int	 	ft_general_error(int n);
+void	ft_square(t_image *data, int x, int y, int size, int color);
+void		draw_line(t_image *image, int x1, int y1, int x2, int y2, int color);
 
-// validations
-int ft_is_cub_format(char *ag);
-
-// Parse
-void			ft_parse_resolution(t_map *map, char *line);
-void 			ft_parse_path(char **path, char *line);
-int				ft_general_parse(t_map *map);
-
-// Init Game
-int				ft_init_game(t_map *map);
-
-// Error Handle
-int				ft_general_error(int n);
-int				ft_perror_free_map(int n, t_map *map);
-
-// Figures
-//void		cub3d_figures(t_map *map, int x1, int y1, int x2, int y2, int color);
-void		my_mlx_pixel_put(t_data *data, int x, int y, int color);
-
-
-void		draw_line(t_data *data, int x1, int y1, int x2, int y2, int color);
-void		ft_square(t_data *data, int x, int y, int size, int color);
-void		ft_draw_grid(t_data *data, int x1, int y1, int x2, int y2, int color);
+int ft_is_file_correct_format(char *file_name);
+int	ft_general_error(int n);
+int	ft_close(int fd);
+int		ft_init_cub3d_game(t_map *map);
 
 # define FAILED						-1
 # define TEXTURES				4

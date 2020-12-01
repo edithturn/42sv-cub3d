@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 20:08:07 by epuclla           #+#    #+#             */
-/*   Updated: 2020/11/23 12:09:52 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/12/01 01:17:51 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,10 @@ int	ft_general_error(int n)
 	else if (n == -1)
 		printf("%s", "Error");
 	return (FAILED);
-} 
+}
 
-int	ft_perror_free_map(int n, t_map *map)
+int	ft_close(int fd)
 {
-	int	i;
-
-	i = -1;
-	while (i++ < 4)
-		if (map->texture[i])
-			free(map->texture[i]);
-	if (map->content)
-		printf("Hola"); //ft_lstclear(&map->content, free);
-	if (map->arr)
-	{
-		i = 0;
-		while (i < map->rows)
-			free(map->arr[i++]);
-		free(map->arr);
-	}
-	return ((n == -42) ? FAILED : ft_general_error(n));
+	close(fd);
+	return (-1);
 }
