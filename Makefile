@@ -6,12 +6,12 @@
 #    By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/02 10:09:06 by epuclla           #+#    #+#              #
-#    Updated: 2020/12/01 01:14:54 by epuclla          ###   ########.fr        #
+#    Updated: 2020/12/01 16:03:14 by epuclla          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		= src/main.c  src/ft_initialize_file_content.c src/ft_init_cub3d_game.c src/ft_parse_file_content.c \
-				src/ft_general_error.c src/ft_figures.c
+				src/ft_general_error.c src/ft_figures.c src/ft_create_maze.c
 
 OBJS_CUB3D		= $(SRCS:.c=.o)
 

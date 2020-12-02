@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 21:16:46 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/01 01:31:07 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/12/01 16:02:18 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ int ft_is_file_correct_format(char *file_name);
 int	ft_general_error(int n);
 int	ft_close(int fd);
 int		ft_init_cub3d_game(t_map *map);
+int ft_create_maze(t_maze *maze);
 
 # define FAILED						-1
 # define TEXTURES				4
