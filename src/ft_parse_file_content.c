@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:33:32 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/01 16:02:50 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/12/02 00:03:03 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,11 +108,11 @@ int		ft_parse_file_content(char *file, t_map *map)
 		}
 		free(line);
 	}
-	printf("MAZE colums %d \n", map->maze.cols);
-	printf("MAZE row  %d \n", map->maze.rows);
+	if((int)ft_strlen(line) > map->maze.cols)
+			map->maze.cols = ft_strlen(line);
+	map->maze.rows++;
 	ft_create_maze(&map->maze);
 	free(line);
-
 	close(fd);
 
 	return (0);
