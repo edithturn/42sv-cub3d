@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 21:16:46 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/01 16:02:18 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/12/06 22:15:57 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stdio.h>
 # include <stdint.h>
 # include "mlx.h"
+# include "config.h"
 # include "minilibx_linux/mlx.h"
 # include "minilibx_mac/mlx.h"
 # include "gnl/get_next_line.h"
@@ -44,7 +45,8 @@ enum				e_colors
 // Structure for file
 typedef struct s_file
 {
-	char		*file;
+	char		*c_fl;
+	int				i_fd;
 	t_list		*content;
 } t_file;
 
@@ -83,15 +85,18 @@ typedef struct	s_maze
 {
 	int			rows;
 	int			 cols;
-	char		**arr;
+	char		*arr[Y];
 	int			cpx;
+	int			**grid;
 	int			cpy;
 	int			c_alpha;
+	int			ft_copy_maze;
 	//unsigned short nbr_sprites;
 }		t_maze;
 
 typedef	struct s_map
 {
+	t_file				file;
 	t_window 		window;
 	t_texture 			texture;
 	t_color 			color;
@@ -123,8 +128,14 @@ int	ft_close(int fd);
 int		ft_init_cub3d_game(t_map *map);
 int ft_create_maze(t_maze *maze);
 
-# define FAILED						-1
-# define TEXTURES				4
-# define SUCCESS				1
-
+int ft_parse_map_grid(char *file, t_map *map);
+int		ft_map_content_is_resolution(char *line);
+int		ft_map_content_is_no(char *line, t_map *map);
+int		ft_map_content_is_so(char *line, t_map *map);
+int		ft_map_content_is_we(char *line, t_map *map);
+int		ft_map_content_is_ea(char *line, t_map *map);
+int		ft_map_content_is_s(char *line, t_map *map);
+int		ft_map_content_is_floor(char *line);
+int		ft_map_content_is_celing(char *line);
+void ft_parse_populate_maze(int row, char *line, t_map *map);
 # endif

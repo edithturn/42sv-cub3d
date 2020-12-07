@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 00:33:32 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/02 00:03:03 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/12/06 20:41:41 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void ft_parse_floor_color(t_map *map, char *line) //R,G,B colors in range [0,255
 	map->color.floor_color[e_B] = ft_atoi(line);
 	printf("%d\n", map->color.floor_color[e_B]);
 }
-void ft_parse_ceilling_solor(t_map *map, char *line)
+void ft_parse_ceilling_color(t_map *map, char *line)
 {
 	while (!ft_isdigit(*line))
 	 	line++;
@@ -74,31 +74,29 @@ void ft_parse_ceilling_solor(t_map *map, char *line)
 int		ft_parse_file_content(char *file, t_map *map)
 {
 	char  *line;
-	int fd;
-	int ret;
-	ret = 0;
+	printf("%s","parse_file_content end START");
+	map->file.i_fd = open(file, O_RDONLY);
 
-	fd = open(file, O_RDONLY);
-	if(fd == -1)
+	if(map->file.i_fd == -1)
 		return (-1);
-	while((ret = get_next_line(fd, &line)) > 0)
+	while((get_next_line(map->file.i_fd, &line)) > 0)
 	{
-		if (*line == 'R' && *(line + 1) == ' ')
+		if (ft_map_content_is_resolution(line))
 			ft_parse_window_resolution(map, line);
-		else if (*line == 'N' && *(line + 1) == 'O' && *(line + 2) == ' ' && (!(map->texture.file[e_north])))
-			ft_parse_texture_paths(&map->texture.file[e_north], line + 2);			
-		else if (*line == 'S' && *(line + 1) == 'O' && *(line + 2) == ' ' && (!(map->texture.file[e_south])))
+		else if (ft_map_content_is_no(line, map))
+			ft_parse_texture_paths(&map->texture.file[e_north], line + 2);
+		else if (ft_map_content_is_so(line, map))
 			ft_parse_texture_paths(&map->texture.file[e_south], line + 2);
-		else if (*line == 'W' && *(line + 1) == 'E' && *(line + 2) == ' ' && (!(map->texture.file[e_west])))
+		else if (ft_map_content_is_we(line, map))
 			ft_parse_texture_paths(&map->texture.file[e_west], line + 2);
-		else if (*line == 'E' && *(line + 1) == 'A' && *(line + 2) == ' ' && (!(map->texture.file[e_east])))
+		else if (ft_map_content_is_ea(line, map))
 			ft_parse_texture_paths(&map->texture.file[e_east], line + 2);
-		else if (*line == 'S' && *(line + 1) == ' '  && (!(map->texture.file[e_sprite])))
+		else if (ft_map_content_is_s(line, map))
 			ft_parse_texture_paths(&map->texture.file[e_sprite], line + 2);
-		else if (*line == 'F' && *(line + 1) == ' ' )
+		else if (ft_map_content_is_floor(line) )
 			ft_parse_floor_color(map, line);
-		else if (*line == 'C' && *(line + 1) == ' ' )
-			ft_parse_ceilling_solor(map, line);
+		else if (ft_map_content_is_celing(line))
+			ft_parse_ceilling_color(map, line);
 		else if (*line == '\0')
 			;
 		else{
@@ -111,9 +109,11 @@ int		ft_parse_file_content(char *file, t_map *map)
 	if((int)ft_strlen(line) > map->maze.cols)
 			map->maze.cols = ft_strlen(line);
 	map->maze.rows++;
-	ft_create_maze(&map->maze);
-	free(line);
-	close(fd);
 
+	free(line);
+	close(map->file.i_fd);
+	//ft_create_maze(&map->maze);
+	printf("%s","ft_parse_map_grid");
+	ft_parse_map_grid(file, map);
 	return (0);
 }

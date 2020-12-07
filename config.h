@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_general_error.c                                 :+:      :+:    :+:   */
+/*   config.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/19 20:08:07 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/06 22:15:46 by epuclla          ###   ########.fr       */
+/*   Created: 2020/12/02 11:41:23 by epuclla           #+#    #+#             */
+/*   Updated: 2020/12/06 21:17:06 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"../cub3d.h"
+#ifndef CONFIG_H
+# define CONFIG_H
 
-int	ft_general_error(int n)
-{
-	if (n == 0)
-		printf("%s",  "Invalid Map" );
-	else if (n == -1)
-		printf("%s", "Error");
-	return (FAILED);
-}
+// INIT DEBUG
+#  define DD printf("\033[1;34m[%d] : %s : %s\033[0m\n", __LINE__, __FUNCTION__, __FILE__); getchar();
+// END DEBUG
 
-int	ft_close(int fd)
-{
-	close(fd);
-	return (-1);
-}
+# define FAILED						-1
+# define TEXTURES				4
+# define SUCCESS				1
+# define Y		0
 
-int ft_is_file_correct_format(char *file_name)
-{
-	char	*format;
-
-	format = ft_strchr(file_name, '.');
-	if (format != NULL)
-		if (ft_strcmp(format, ".cub") != 0)
-			return (FAILED);
-	return (0);
-}
+#endif

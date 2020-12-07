@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/30 22:36:59 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/01 01:29:46 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/12/04 00:14:22 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,6 @@ int ft_initialize_file_content(char *fd, t_cub3d *cub3d)
 	cub3d->map.maze.rows = 0;
 	cub3d->map.maze.cols = 0;
 
-	printf("%s", line);
+	printf("%s initialize", line);
 	return 0;
 }
