@@ -1,0 +1,53 @@
+# SOURCES 
+SRC_FILLER := main.c init.c grid.c piece.c epure.c gen_dir.c heatmap.c hotspot.c \
+                clear.c algorithm.c inline.c
+SRC_UTILS := heatmap_utils.c ipos.c get_int.c memset.c read.c itoa.c memcpy.c  \
+			point.c
+# PATH GLOBAL
+SRC_PATH := srcs
+OBJ_PATH := objs
+HEADER_PATH := headers
+# SRC TREE
+FILLER_PATH := filler
+UTILS_PATH := utils
+INCLUDE := -I$(HEADER_PATH) 
+# LINK
+SRC := $(addprefix $(FILLER_PATH)/,$(SRC_FILLER))
+SRC += $(addprefix $(UTILS_PATH)/,$(SRC_UTILS))
+OBJ = $(SRC:%.c=$(OBJ_PATH)/%.o)
+DEP = $(OBJ:%.o=%.d)
+# GLOBAL
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror 
+#CFLAGS = -Wall -Wextra -O0 -fsanitize=address -ggdb #-Werror 
+NAME = louregni.filler
+# UTILS
+ECHO= echo -e
+# RULES
+.PHONY: all
+all: 
+	@printf "\e[92mCompilation's flags: \e[36m$(CFLAGS)\n"
+	@printf "\e[92mGenerating objects :\e[0m\n"
+	@$(MAKE) $(NAME)
+$(NAME): $(OBJ)
+	@printf "\e[34mGenerated : \e[5;36m$(NAME)\e[0m\n"
+	@$(CC) $(CFLAGS) $(INCLUDE) $^ -o $@
+-include $(DEP)
+$(OBJ_PATH)/%.o: $(SRC_PATH)/%.c
+	@mkdir -p $(@D)
+	@$(CC) $(CFLAGS) $(INCLUDE) -MMD -c $< -o $@
+	@printf "\e[1;31m  >>  \e[4;34m$@\e[0m\n"
+.PHONY: clean
+clean:
+	@printf "\e[1;31mObject's removed\e[0m\n"
+	@$(RM) -r $(OBJ_PATH)
+.PHONY: fclean
+fclean:
+	@printf "\e[1;31m$(NAME) removed\e[0m\n"
+	@$(MAKE) clean 2> /dev/null
+	@$(RM) $(NAME)
+	@$(RM) filler.trace 2> /dev/null
+.PHONY: re
+re:
+	@$(MAKE) fclean 2> /dev/null
+	@$(MAKE) 

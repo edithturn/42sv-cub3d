@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   config.h                                           :+:      :+:    :+:   */
+/*   ft_initialize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 11:41:23 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/10 14:45:09 by epuclla          ###   ########.fr       */
+/*   Created: 2020/12/09 13:01:14 by epuclla           #+#    #+#             */
+/*   Updated: 2020/12/12 01:25:55 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONFIG_H
-# define CONFIG_H
+#include "../cub3d.h"
 
-
-# define FAILED						-1
-# define TEXTURES				4
-# define SUCCESS				1
-# define Y		0
-
-#endif
+void ft_init_game(t_cub3d *cub3d)
+{
+	ft_initialize_map_content(cub3d);
+	ft_parse_map_content(cub3d);
+	ft_allocate_map_maze(cub3d);
+	ft_populate_maze_grid(cub3d);
+}

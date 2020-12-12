@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 14:46:11 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/03 18:57:29 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/12/10 12:52:53 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,37 +19,37 @@ int		ft_map_content_is_resolution(char *line)
 	return (0);
 }
 
-int		ft_map_content_is_no(char *line, t_map *map)
+int		ft_map_content_is_no(char *line)
 {
-	if((*line == 'N' && *(line + 1) == 'O' && *(line + 2) == ' ' && (!(map->texture.file[e_north]))) )
+	if (*line == 'N' && *(line + 1) == 'O' && *(line + 2) == ' ' )
 		return (1);
 	return (0);
 }
 
-int		ft_map_content_is_so(char *line, t_map *map)
+int		ft_map_content_is_so(char *line)
 {
-	if(	(*line == 'S' && *(line + 1) == 'O' && *(line + 2) == ' ' && (!(map->texture.file[e_south]))))
+	if (*line == 'S' && *(line + 1) == 'O' && *(line + 2) == ' ' )
 		return (1);
 	return (0);
 }
 
-int		ft_map_content_is_we(char *line, t_map *map)
+int		ft_map_content_is_we(char *line)
 {
-	if(*line == 'W' && *(line + 1) == 'E' && *(line + 2) == ' ' && (!(map->texture.file[e_west])))
+	if (*line == 'W' && *(line + 1) == 'E' && *(line + 2) == ' ' )
 		return (1);
 	return (0);
 }
 
-int		ft_map_content_is_ea(char *line, t_map *map)
+int		ft_map_content_is_ea(char *line)
 {
-	if(*line == 'E' && *(line + 1) == 'A' && *(line + 2) == ' ' && (!(map->texture.file[e_east])))
+	if (*line == 'E' && *(line + 1) == 'A' && *(line + 2) == ' ' )
 		return (1);
 	return (0);
 }
 
-int		ft_map_content_is_s(char *line, t_map *map)
+int		ft_map_content_is_s(char *line)
 {
-	if(*line == 'S' && *(line + 1) == ' '  && (!(map->texture.file[e_sprite])))
+	if(*line == 'S' && *(line + 1) == ' ' )
 		return (1);
 	return (0);
 }

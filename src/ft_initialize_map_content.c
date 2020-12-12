@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   config.h                                           :+:      :+:    :+:   */
+/*   ft_initialize_file_content.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/02 11:41:23 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/10 14:45:09 by epuclla          ###   ########.fr       */
+/*   Created: 2020/11/30 22:36:59 by epuclla           #+#    #+#             */
+/*   Updated: 2020/12/12 01:18:33 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CONFIG_H
-# define CONFIG_H
+#include "../cub3d.h"
 
+int ft_initialize_map_content(t_cub3d *cub3d)
+{
+	int					n;
 
-# define FAILED						-1
-# define TEXTURES				4
-# define SUCCESS				1
-# define Y		0
-
-#endif
+	cub3d->map.window.heigth = 0;
+	cub3d->map.window.width = 0;
+	n = 0;
+	while (n < 5)
+		cub3d->map.texture.path[n++] = 0;
+	n = 0;
+	while (n < 4)
+	{
+		cub3d->map.color.ceiling_color[n++] = 0;
+		cub3d->map.color.floor_color[n++] = 0;
+	}
+	cub3d->map.maze.rows = 0;
+	cub3d->map.maze.cols = 0;
+	return 0;
+}

@@ -1,36 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_initialize_file_content.c                       :+:      :+:    :+:   */
+/*   ft_validations.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/30 22:36:59 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/04 00:14:22 by epuclla          ###   ########.fr       */
+/*   Created: 2020/12/10 15:19:47 by epuclla           #+#    #+#             */
+/*   Updated: 2020/12/10 16:21:42 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-int ft_initialize_file_content(char *fd, t_cub3d *cub3d)
+int ft_is_file_correct_format(char *file_name)
 {
-	int					n;
-	char			*line;
-	line = fd;
-	cub3d->map.window.heigth = 0;
-	cub3d->map.window.width = 0;
-	n = 0;
-	while (n < 5)
-		cub3d->map.texture.file[n++] = 0;
-	n = 0;
-	while (n < 4)
-	{
-		cub3d->map.color.ceiling_color[n++] = 0;
-		cub3d->map.color.floor_color[n++] = 0;
-	}
-	cub3d->map.maze.rows = 0;
-	cub3d->map.maze.cols = 0;
+	char	*format;
 
-	printf("%s initialize", line);
-	return 0;
+	format = ft_strchr(file_name, '.');
+	if (format != NULL)
+		if (ft_strcmp(format, ".cub") != 0)
+			return (FAILED);
+	return (1);
 }

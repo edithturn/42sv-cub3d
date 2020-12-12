@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 20:08:07 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/06 22:15:46 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/12/10 15:22:15 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,4 @@ int	ft_close(int fd)
 {
 	close(fd);
 	return (-1);
-}
-
-int ft_is_file_correct_format(char *file_name)
-{
-	char	*format;
-
-	format = ft_strchr(file_name, '.');
-	if (format != NULL)
-		if (ft_strcmp(format, ".cub") != 0)
-			return (FAILED);
-	return (0);
 }
