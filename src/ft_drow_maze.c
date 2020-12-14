@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_game.c                                     :+:      :+:    :+:   */
+/*   ft_drow_maze.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/09 13:01:14 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/13 11:59:18 by epuclla          ###   ########.fr       */
+/*   Created: 2020/12/13 11:09:34 by epuclla           #+#    #+#             */
+/*   Updated: 2020/12/13 11:24:57 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
-void ft_init_game(t_cub3d *cub3d)
+/*void ft_draw_maze(t_cub3d *cub3d, t_image *image)
 {
-	cub3d->map.tile_size = 64;
-	ft_initialize_map_content(cub3d);
-	ft_parse_map_content(cub3d);
-	ft_allocate_map_maze(cub3d);
-	ft_populate_maze_grid(cub3d);
-	ft_init_cub3d_game(cub3d);
-}
+	int i;
+	int j;
+
+	i = 0;
+	j = 0;
+
+	while(i < )
+	{
+		cub3d->map.maze.grid[i][j]
+	}
+
+	my_mlx_pixel_put(data, x, y, color);
+}*/

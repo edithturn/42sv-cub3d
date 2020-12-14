@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 12:53:10 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/01 01:07:55 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/12/13 12:04:44 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void    my_mlx_pixel_put(t_image *image, int x, int y, int color)
     *(unsigned int*)dst = color;
 }
 
-void		draw_line(t_image *image, int x1, int y1, int x2, int y2, int color)
+void		draw_line(t_cub3d *cub3d, int x1, int y1, int x2, int y2, int color)
 {
 	int		i;
 	int		x;
@@ -42,7 +42,7 @@ void		draw_line(t_image *image, int x1, int y1, int x2, int y2, int color)
 	i = 1;
 	while (i <= step)
 	{
-		my_mlx_pixel_put(image, x, y, color);
+		my_mlx_pixel_put(&cub3d->image, x, y, color);
 		x += dx;
 		y += dy;
 		i++;
@@ -74,21 +74,23 @@ void		ft_square(t_image *data, int x, int y, int size, int color)
 	}
 }
 
-void		ft_draw_grid(t_image *image, int x1, int y1, int x2, int y2, int color)
+void		ft_draw_grid(t_cub3d *cub3d, int color)
 {
 	int		i;
 	int		j;
 
 	i = 0;
 	j = 0;
-	while (i < x1)
+	while (i < cub3d->map.maze.rows)
 	{
-		draw_line(image, x1, i * y1, x2,	i * y2, color);
+		draw_line(cub3d, 0, i * cub3d->map.tile_size, cub3d->map.window.width,
+					i * cub3d->map.tile_size, color);
 		i++;
 	}
-	while (j < y1)
+	while (j < cub3d->map.maze.cols)
 	{
-		draw_line(image, j * x1, y1, j * x2, y2, color);
+		draw_line(cub3d, j * cub3d->map.tile_size, 0, j * cub3d->map.tile_size,
+					cub3d->map.window.heigth, color);
 		j++;
 	}
 }

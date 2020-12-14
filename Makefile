@@ -6,14 +6,14 @@
 #    By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/02 10:09:06 by epuclla           #+#    #+#              #
-#    Updated: 2020/12/12 01:40:24 by epuclla          ###   ########.fr        #
+#    Updated: 2020/12/13 11:27:19 by epuclla          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		= src/main.c src/ft_init_game.c src/ft_initialize_map_content.c src/ft_parse_map_is_element.c \
 					src/ft_parse_map_content.c src/ft_parse_map_by_elements.c \
 					src/ft_allocate_map_maze.c  src/ft_populate_maze_grid.c \
-					src/ft_validations.c 
+					src/ft_validations.c src/ft_init_cub3d_game.c src/ft_figures.c
 
 OBJS_CUB3D		= $(SRCS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 21:16:46 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/10 15:12:52 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/12/13 11:57:43 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ typedef	struct s_map
 {
 	char				*file;
 	int						fd;
+	int					tile_size;
 	t_list				*content;
 	t_window 		window;
 	t_texture 			texture;

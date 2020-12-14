@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 21:16:46 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/12 01:34:16 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/12/13 12:03:01 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int			ft_parse_map_content(t_cub3d *cub3d);
 void		ft_allocate_map_maze(t_cub3d *cub3d);
 int 		ft_populate_maze_grid(t_cub3d *cub3d);
 void ft_parse_maze(int row, char *line, t_cub3d *cub3d);
-
+int		ft_init_cub3d_game(t_cub3d *cub3d);
 
 int		ft_is_file_correct_format(char *file_name);
 int	 	ft_general_error(int n);
@@ -53,4 +53,9 @@ void	ft_parse_window_resolution(t_map *map, char *line);
 void 	ft_parse_texture_paths(char **path, char *line);
 void	 ft_parse_floor_color(t_map *map, char *line);
 void 	ft_parse_ceilling_color(t_map *map, char *line);
+
+
+void		ft_draw_grid(t_cub3d *cub3d, int color);
+void		draw_line(t_cub3d *cub3d, int x1, int y1, int x2, int y2, int color);
+void    my_mlx_pixel_put(t_image *image, int x, int y, int color);
 # endif
