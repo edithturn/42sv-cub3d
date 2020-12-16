@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 01:07:28 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/12 01:20:04 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/12/15 10:24:47 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_parse_window_resolution(t_map *map, char *line)
 {
   	int width;
-	int heigth;
+	int height;
 
 	while (!ft_isdigit(*line))
 	 	line++;
@@ -25,9 +25,9 @@ void	ft_parse_window_resolution(t_map *map, char *line)
 	line += ft_strlen(ft_itoa(width));
 	while (!ft_isdigit(*line ))
 		line++;
-	heigth = ft_atoi(line);
-	map->window.heigth = heigth;
-	printf("cub3d->map.heigth %d\n", map->window.heigth);
+	height = ft_atoi(line);
+	map->window.height = height;
+	printf("cub3d->map.height %d\n", map->window.height);
 
 }
 

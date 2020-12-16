@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 21:16:46 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/13 12:03:01 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/12/15 10:28:55 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,14 @@ void 	ft_parse_ceilling_color(t_map *map, char *line);
 void		ft_draw_grid(t_cub3d *cub3d, int color);
 void		draw_line(t_cub3d *cub3d, int x1, int y1, int x2, int y2, int color);
 void    my_mlx_pixel_put(t_image *image, int x, int y, int color);
+
+int			ft_cub2D(t_cub3d *cub3d);
+//int			ft_render(t_cub3d *cub3d);
+
+
+void		draw_player(t_cub3d *cub3d, int pos_x, int pos_y, int size, int color);
+void		draw_map(t_cub3d *cub3d, int wallcol, int floorcol);
+void		ft_draw_grid(t_cub3d *cub3d, int color);
+void		ft_square(t_cub3d *cub3d, int x, int y, int size, int color);
+void		draw_line(t_cub3d *cub3d, int x1, int y1, int x2, int y2, int color);
 # endif

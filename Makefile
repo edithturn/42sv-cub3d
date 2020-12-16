@@ -6,14 +6,14 @@
 #    By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/02 10:09:06 by epuclla           #+#    #+#              #
-#    Updated: 2020/12/13 11:27:19 by epuclla          ###   ########.fr        #
+#    Updated: 2020/12/15 12:31:40 by epuclla          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		= src/main.c src/ft_init_game.c src/ft_initialize_map_content.c src/ft_parse_map_is_element.c \
 					src/ft_parse_map_content.c src/ft_parse_map_by_elements.c \
 					src/ft_allocate_map_maze.c  src/ft_populate_maze_grid.c \
-					src/ft_validations.c src/ft_init_cub3d_game.c src/ft_figures.c
+					src/ft_validations.c src/ft_init_cub3d_game.c src/ft_figures.c src/ft_render.c
 
 OBJS_CUB3D		= $(SRCS:.c=.o)
 
@@ -48,7 +48,7 @@ NAME		= cub3d
 all:		$(NAME)
 
 $(NAME):	$(MLX_NAME)  $(LIBFT_NAME) $(GNL_NAME) $(OBJS_CUB3D)
-			clang -g3 $(CFLAGS) -o $(NAME) $(OBJS_CUB3D)  $(SO_LIBS) $(MLX_PATH)/$(MLX_NAME) $(GNL_PATH)/$(GNL_NAME) $(LIBFT_PATH)/$(LIBFT_NAME)
+			clang -g0 $(CFLAGS) -o $(NAME) $(OBJS_CUB3D)  $(SO_LIBS) $(MLX_PATH)/$(MLX_NAME) $(GNL_PATH)/$(GNL_NAME) $(LIBFT_PATH)/$(LIBFT_NAME)
 
 $(MLX_NAME):
 			$(MAKE) -C $(MLX_PATH)

@@ -6,7 +6,7 @@
 /*   By: epuclla <epuclla@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/15 21:16:46 by epuclla           #+#    #+#             */
-/*   Updated: 2020/12/13 11:57:43 by epuclla          ###   ########.fr       */
+/*   Updated: 2020/12/15 10:20:58 by epuclla          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct s_image
 typedef struct s_window
 {
 	int			width;
-	int			heigth;
+	int			height;
 } t_window;
 
 // Structure for textures
@@ -80,6 +80,8 @@ typedef	struct s_map
 	char				*file;
 	int						fd;
 	int					tile_size;
+	int				floor_color;
+	int				wall_color;
 	t_list				*content;
 	t_window 		window;
 	t_texture 			texture;
@@ -87,13 +89,38 @@ typedef	struct s_map
 	t_maze 				maze;
 } t_map;
 
-typedef	struct s_cub3d
+typedef	struct		s_mlx
 {
 	void			*mlx;
+	void			*window;
+	void			*img;
+}					t_mlx;
+
+typedef	struct		s_player
+{
+	int				pos_x;
+	int				pos_y;
+	int				move[6];
+	int				color;
+}					t_player;
+
+typedef	struct		s_data {
+	char			*addr;
+	int				bits_per_pixel;
+	int				line_length;
+	int				endian;
+}					t_data;
+
+typedef	struct s_cub3d
+{
+	//void			*mlx;
 	void			*win;
 	t_image 		image;
 	t_map			map;
-}	t_cub3d;
+	t_player		player;
+	t_mlx			mlx;
+	t_data			data;
+}					t_cub3d;
 
 
 # endif
